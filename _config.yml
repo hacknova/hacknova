@@ -31,7 +31,7 @@ seo:
 # Event information.
 event:
   name:        "HackNova"
-  description: "Nova High School's first HackAThon!"
+  description: "Nova High School's first Hackathon!"
   date:        "June 2017"
   location:    "Seattle, WA, United States"
 
@@ -51,7 +51,7 @@ event:
 
   about:
     description: >
-      HackNova is a HackAThon hosted at the [Horace Mann Building](https://www.google.com/maps/place/2410+E+Cherry+St,+Seattle,+WA+98122/@47.6085146,-122.303013,17z/data=!3m1!4b1!4m5!3m4!1s0x54906adb9e26afd3:0x39ef4f9811366bd4!8m2!3d47.608511!4d-122.300819)
+      HackNova is a Hackathon hosted at the [Horace Mann Building](https://www.google.com/maps/place/2410+E+Cherry+St,+Seattle,+WA+98122/@47.6085146,-122.303013,17z/data=!3m1!4b1!4m5!3m4!1s0x54906adb9e26afd3:0x39ef4f9811366bd4!8m2!3d47.608511!4d-122.300819)
       in Seattle, WA. It's open to all students.
 
   schedule:
