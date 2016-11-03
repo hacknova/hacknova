@@ -12,23 +12,23 @@ layout: default
   </div>
 </section>
 
-<section class="info">
+<!-- <section id="info" class="info">
   <div class="container">
-    <div class="items row">
-      {% for section in site.event.info.sections %}
-        <div class="col-xs-12 col-sm-4 text-center">
-          <div class="item">
-            <img src="{{ section.image }}" />
-            <h1>{{ section.title }}</h1>
-            <p>{{ section.description }}</p>
-          </div>
-        </div>
-      {% endfor %}
+    <div class="date">June 2017</date>
+  </div>
+</section> -->
+
+<section id="schedule" class="schedule">
+  <div class="container">
+    <h1 class="text-center">Schedule</h1>
+    <div class="commingsoon">
+      <h2>Come back soon!</h2>
     </div>
   </div>
 </section>
 
-<section class="faq">
+
+<section id="faq" class="faq">
   <div class="container">
     <h1 class="text-center">FAQ</h1>
     <div class="row">
@@ -42,5 +42,30 @@ layout: default
         {% endfor %}
       </div>
     </div>
+  </div>
+
+  <section id="sponsors" class="sponsors">
+    <div class="container">
+      <h1 class="text-center">Sponsors</h1>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="question col-xs-12 col-sm-12">
+            {% for sponsor in site.event.sponsors %}
+              <a href="{{ sponsor.link }}"><img src="{{ sponsor.image }}" /></a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style='width:100%; text-align:center;margin-top: 100px;' class='buttons'>
+    {% for link in site.event.hero.links %}
+      {% if link.href %}
+        <a href="{{ link.href }}">{{ link.text }}</a>
+      {% elsif link.my_mlh %}
+        <a class="apply" href="https://my.mlh.io/oauth/authorize?client_id={{ link.my_mlh.client_id }}&amp;redirect_uri={{ link.my_mlh.redirect_uri }}&amp;response_type=token">{{ link.text }}</a>
+      {% endif %}
+    {% endfor %}
   </div>
 </section>

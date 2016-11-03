@@ -21,8 +21,17 @@
   font-weight: 600;
 }
 
+.footer a {
+  border-bottom: dotted 2px white;
+}
+
+.footer a:hover {
+  border-bottom: dotted 2px #6c6c6c;
+  text-decoration: none;
+}
+
 body {
-  background-color: #F5699C;
+  background-color: #0F2C34;
 }
 
 section {
@@ -44,13 +53,29 @@ section {
   z-index: 10000;
 }
 
-/* 
+/*
  * Hero Section
  */
 
 .hero {
-  background-color: #F5699C;
+  background: url("/images/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   min-height: 110vh;
+  z-index: 0;
+}
+
+.hero-fade {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 110vh;
+  z-index: 0;
 }
 
 .hero img {
@@ -58,44 +83,66 @@ section {
 }
 
 .hero hr {
-  border-top: 15px solid #0F2C34;
+  border-top: 1px solid #333;
   margin: 0;
   position: relative;
-  top: -14px;
+  margin: 0 auto;
+
+  max-width: 500px;
 }
 
 .hero .wrapper {
+  position:absolute;
+  width: 100%;
+  z-index: 10;
   padding-top: 30vh;
 }
 
-.hero .wrapper h1 {
+.hero .wrapper .title-wrapper {
   background: #fff;
-  background: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .6);
   display: inline-block;
+  padding: 10px 70px;
+
+  -webkit-transform: skew(20deg);
+   -moz-transform: skew(20deg);
+     -o-transform: skew(20deg);
+}
+
+.hero .wrapper .title-wrapper h1 {
+  color: #333;
   font-size: 60px;
   font-weight: 800;
   letter-spacing: -2px;
-  padding: 10px 30px;
+
+  -webkit-transform: skew(-20deg);
+   -moz-transform: skew(-20deg);
+     -o-transform: skew(-20deg);
 }
 
+#slash {
+  float: left;
+}
+
+
 .hero .wrapper h2 {
+  color: #FFFFFF;
   font-size: 28px;
   font-weight: 200;
 }
 
 .hero .wrapper h3 {
+  color: #FFFFFF;
   font-size: 20px;
   font-weight: 200;
   padding-bottom: 35px;
 }
 
-.hero .buttons {
+.buttons {
   margin: 40px 0;
 }
 
-.hero .buttons a {
-  background: #fff;
-  border: 10px solid #0F2C34;
+.buttons a {
   border-radius: 40px;
   color: #0F2C34;
   display: inline;
@@ -105,20 +152,24 @@ section {
   padding: 10px 70px;
   text-decoration: none;
   text-transform: uppercase;
-}
 
-.hero .buttons a:hover,
-.hero .buttons a:focus {
-  background-color: #0F2C34;
+  background-color: #3498db;
   color: #fff;
   transition: all 0.2s ease;
 }
 
-.hero .buttons a:not(:last-child) {
-  margin-right: 10px;
+.buttons a:focus,
+.buttons a:hover {
+  filter: brightness(85%);
 }
 
-/* 
+
+.buttons a:not(:last-child) {
+  margin-right: 10px;
+  background-color: #2ecc71;
+}
+
+/*
  * About Section
  */
 
@@ -172,6 +223,57 @@ section {
   font-size: 20px;
 }
 
+.info .date {
+  font-size: 4em;
+  text-align: center;
+}
+
+/*
+ * Schedule section
+ */
+ .schedule {
+   background-color: #0F2C34;
+   margin-top: 15px;
+   padding: 100px 0;
+   position: relative;
+   color: #FFFFFF;
+
+   text-align: center;
+ }
+
+ .schedule h1 {
+   font-family: 'Montserrat';
+   font-weight: 700;
+   margin: 30px 0;
+   margin-bottom: 50px;
+ }
+
+ .schedule .comingsoon h2 {
+   font-family: 'Montserrat';
+   font-weight: 400;
+   font-size: 24px;
+ }
+
+/*
+ * Sponsors
+ */
+
+.sponsors {
+  background-color: #FFFFFF;
+  padding: 100px;
+  position: relative;
+  text-align: center;
+}
+
+.sponsors h1 {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 3.5em;
+  margin: 30px 0;
+  margin-bottom: 50px;
+}
+
+
 /*
  * FAQ Section
  */
@@ -217,7 +319,7 @@ section {
  */
 
 .footer {
-  background-color: #F5699C;
+  background-color: #0F2C34;
   color: #fff;
   padding: 30px 0;
 }
