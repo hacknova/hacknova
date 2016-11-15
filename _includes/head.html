@@ -34,4 +34,10 @@
   <!-- Favicon -->
   <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="icon"      href="{{ '/img/favicon.ico' | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Raven JS -->
+  <script src="https://cdn.ravenjs.com/3.6.1/raven.min.js"></script>
+  <script type="text/javascript">
+    Raven.config('https://5a9b1bcb0df5496391306316134886f2@sentry.tritonjs.com/4').install()
+  </script>
 </head>
