@@ -3,9 +3,34 @@ layout: default
 ---
 
 <section class="about">
+  <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+  <script src="{{ '/js/jquery-1.11.3.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+
   <div class="container text-center">
+    <div id='success' style='display:none;'>
+      <img height='100px' width='100px' src="http://emoji-38d7.kxcdn.com/share/2705.png" />
+      <br /><br />
+    </div>
+
+    <h1 id='noti'>Sending Application ...</h1>
+    <br /><br /><br />
+    <div id="container"></div>
+
+
+    <div id='fail' style='display:none;'>
+      <br /><br />
+      <p>
+        We're sorry but we failed to send your application, you may have already applied or something else
+        may have occured. Please send an e-mail to <a href='mailto:president@hacknova.co'>president@hacknova.co</a>
+        with a description of what happened and we'll look into this.
+
+      </p>
+    </div>
+  </div>
+
+  <div id='hide' style='display:none;' class="container text-center">
     <h1>{{ site.event.register.message }}</h1>
-    
+
     <br />
     <hr />
     <br />
@@ -13,9 +38,84 @@ layout: default
     <p>By signing up for {{ site.event.name }} you agree to abide by the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">Major League Hacking Code of Conduct</a>.</p>
     <br />
 
+
+
     <p>We participate in Major League Hacking (MLH) as a MLH Member Event. You authorize us to share certain application/registration information for event administration, ranking, MLH administration, pre and post-event informational e-mails, and occasional messages about hackathons in line with the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.</p>
 
     <br />
     <p><a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">&rarr; Go back to homepage</a></p>
   </div>
+
+  <!-- Init Progress Bar -->
+  <script type="text/javascript">
+    function gup( name, url ) {
+      if (!url) url = location.href;
+      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      var regexS = "[\\?&]"+name+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( url );
+      return results == null ? null : results[1];
+    }
+
+    function progressError(err) {
+      $('#noti').html('Failed...')
+
+      bar.animate(1)
+
+      var path = document.querySelector('#container > svg > path:last-child');
+      path.setAttribute("stroke", "#FC5B3F");
+
+      $('#fail').show();
+
+      if(err) $('#noti').html('<span>'+err+'</span>');
+    }
+
+    function progressSuccess() {
+      $('#container,#noti').fadeOut(function() {
+        $('#success').fadeIn();
+        $('#hide').fadeIn();
+      });
+
+      bar.animate(1);
+
+      var path = document.querySelector('#container > svg > path:last-child');
+      path.setAttribute("stroke", "#6FD57F");
+    }
+
+    var bar = new ProgressBar.Line(container, {
+      strokeWidth: 4,
+      easing: 'easeInOut',
+      duration: 1400,
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: {width: '100%', height: '100%'}
+    });
+
+    bar.animate(0.5);  // Number from 0.0 to 1.0
+
+    var access_token = gup('access_token', window.location.href);
+    if(access_token !== "" && access_token) {
+      console.log('POSTING AT to Backend');
+
+      $.ajax({
+        type: 'POST',
+        url:  'http://127.0.0.1:8081/v1/attending',
+        contentType: 'application/json; charset=UTF-8',
+        dataType: 'json',
+        data: JSON.stringify({
+          access_token: access_token
+        })
+      }).fail(function() {
+        console.log('failed');
+      }).done(function(data) {
+        if(typeof data !== 'object') return progressError('INVALID_SERVER_RESPONSE_CLIENT');
+        if(!data.success) return progressError(data.message);
+        console.log('GOT', data);
+        progressSuccess();
+      })
+    } else {
+      progressError();
+    }
+  </script>
 </section>
