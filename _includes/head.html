@@ -33,7 +33,12 @@
 
   <!-- Favicon -->
   <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="icon"      href="{{ '/img/favicon.ico' | prepend: site.baseurl | prepend: site.url }}">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Raven JS -->
   <script src="https://cdn.ravenjs.com/3.6.1/raven.min.js"></script>
