@@ -25,8 +25,8 @@ social:
 # This is Search Engine Optimization. It'll help your website look better on search.
 seo:
   title:       "HackNova | June 2017"
-  description: "This is a sample hackathon website that you can use by following instructions on GitHub."
-  image:       ""
+  description: "A HighSchool Hackathon @ Nova High School in Seattle, WA."
+  image:       "https://hacknova.co/images/HackNova.png"
 
 # Event information.
 event:
