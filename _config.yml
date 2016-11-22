@@ -24,7 +24,7 @@ social:
 
 # This is Search Engine Optimization. It'll help your website look better on search.
 seo:
-  title:       "HackNova | June 2017"
+  title:       "HackNova | May 2017"
   description: "A HighSchool Hackathon @ Nova High School in Seattle, WA."
   image:       "https://hacknova.co/images/HackNova.png"
 
@@ -32,7 +32,7 @@ seo:
 event:
   name:        "HackNova"
   description: "Nova High School's first Hackathon!"
-  date:        "June 2017"
+  date:        "May 2017"
   location:    "Seattle, WA, United States"
 
   #trust_badge:
